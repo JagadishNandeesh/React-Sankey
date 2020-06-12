@@ -2,9 +2,9 @@ const initialState = {
   todos: [],
 };
 
-export const todoApp = (
+export const sankey = (
   state = {
-    todos: [],
+    sankey: [],
   },
   action
 ) => {
