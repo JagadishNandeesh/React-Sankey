@@ -1,7 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { SankeyContainer } from "./charts/sankey/Container";
 
-const App = () => {
+const App = (props) => {
   const { t, i18n } = useTranslation(["translation", "welcome"]);
 
   const changeLanguage = (code) => {
@@ -21,6 +22,8 @@ const App = () => {
       <h1>{t("welcome:title", "Hello there.")}</h1>
 
       <p>{t("welcome:content.text", "Welcome here.")}</p>
+
+      <SankeyContainer />
     </div>
   );
 };
