@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import { combineReducers, createStore } from "redux";
 import { todoApp } from "./charts/sankey/reducer";
 import { enhancers } from "./enhancers";
+import "./i18n";
 
 const rootReducer = combineReducers({
   todoApp,
@@ -15,9 +16,11 @@ const rootReducer = combineReducers({
 const store = createStore(rootReducer, {}, enhancers);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <Suspense fallback={null}>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </Suspense>,
   document.getElementById("root")
 );
 
