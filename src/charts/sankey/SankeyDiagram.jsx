@@ -1,25 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import * as d3 from "d3";
 import { sankey, sankeyLinkHorizontal } from "d3-sankey";
 import chroma from "chroma-js";
+import { Tooltip } from "@material-ui/core";
 
-const SankeyNode = ({ name, x0, x1, y0, y1, color }) => (
-  <rect x={x0} y={y0} width={x1 - x0} height={y1 - y0} fill={color}>
-    <title>{name}</title>
-  </rect>
-);
+const SankeyNode = ({ name, x0, x1, y0, y1, color }) => {
+  const [open, setOpen] = useState(false);
 
-const SankeyLink = ({ link, color }) => (
-  <path
-    d={sankeyLinkHorizontal()(link)}
-    style={{
-      fill: "none",
-      strokeOpacity: ".3",
-      stroke: color,
-      strokeWidth: Math.max(1, link.width),
-    }}
-  />
-);
+  const handleClose = () => setOpen(false);
+  const handleOpen = () => setOpen(true);
+  return (
+    <Tooltip
+      open={open}
+      onClose={handleClose}
+      onOpen={handleOpen}
+      title={<div>{name}</div>}
+    >
+      <rect
+        onMouseOver={() => handleOpen()}
+        onMouseOut={() => handleClose()}
+        x={x0}
+        y={y0}
+        width={x1 - x0}
+        height={y1 - y0}
+        fill={color}
+      >
+        <title>{name}</title>
+      </rect>
+    </Tooltip>
+  );
+};
+
+const SankeyLink = ({ link, color }) => {
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => setOpen(false);
+  const handleOpen = () => setOpen(true);
+  return (
+    <Tooltip
+      open={open}
+      onClose={handleClose}
+      onOpen={handleOpen}
+      title={
+        <div>
+          {link.source.name}- {link.target.name}-{link.value}
+        </div>
+      }
+    >
+      <path
+        d={sankeyLinkHorizontal()(link)}
+        onMouseOver={() => handleOpen()}
+        onMouseOut={() => handleClose()}
+        style={{
+          fill: "none",
+          strokeOpacity: ".3",
+          stroke: color,
+          strokeWidth: Math.max(1, link.width),
+        }}
+      />
+    </Tooltip>
+  );
+};
 
 export const SankeyDiagram = ({ data, width, height }) => {
   const { nodes, links } = sankey()
@@ -31,7 +72,6 @@ export const SankeyDiagram = ({ data, width, height }) => {
     ])(data);
   const color = chroma.scale("Set3").classes(nodes.length);
   const colorScale = d3.scaleLinear().domain([0, nodes.length]).range([0, 1]);
-
   return (
     <g style={{ mixBlendMode: "multiply" }}>
       {nodes.map((node, i) => (
@@ -45,6 +85,7 @@ export const SankeyDiagram = ({ data, width, height }) => {
         <SankeyLink
           link={link}
           color={color(colorScale(link.source.index)).hex()}
+          key={i}
         />
       ))}
     </g>

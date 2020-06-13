@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { SankeyDiagram } from "./SankeyDiagram";
 
-export const Sankey = (props) => {
+export const Sankey = ({ sankey, sankeyRequested }) => {
   const [data, setData] = useState(null);
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
@@ -13,7 +13,7 @@ export const Sankey = (props) => {
     setHeight(height);
   };
   useEffect(() => {
-    props.sankeyRequested();
+    sankeyRequested();
     measureSVG();
   }, []);
 
@@ -27,8 +27,8 @@ export const Sankey = (props) => {
   return (
     <div>
       <svg width="100%" height="600" ref={sankeyRef}>
-        {Object.keys(props.sankey).length && (
-          <SankeyDiagram data={props.sankey} width={width} height={height} />
+        {Object.keys(sankey).length && (
+          <SankeyDiagram data={sankey} width={width} height={height} />
         )}
       </svg>
     </div>
