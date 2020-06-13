@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { sankeyRequested } from "./Actions";
 import { Sankey } from "./index";
 
-const mapStateProps = (state) => ({ todo: "" });
+const mapStateProps = (state) => ({ sankey: state.sankey });
 
 const mapDispatchToProps = {
   sankeyRequested: sankeyRequested,
