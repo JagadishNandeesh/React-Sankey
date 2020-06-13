@@ -1,5 +1,4 @@
 import { Observable } from "rxjs";
-import { filter, mapTo } from "rxjs/operators";
 import { asyncSelect } from "../../utilites/pipes";
 import {
   sankeyStatus,

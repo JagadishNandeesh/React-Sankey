@@ -1,14 +1,11 @@
-import { combineReducers, createStore } from "redux";
-import { sankey } from "./charts/sankey/Reducer";
-import { enhancers } from "./enhancers";
+import { sankey } from "./charts/sankey/Reducers";
 import { updateSankey, sankeyReactor } from "./charts/sankey/Epics";
 import { composeStore } from "./storeCreator";
 
-const rootReducer = combineReducers({
-  sankey,
+export const store = composeStore({
+  reducers: {
+    sankey,
+  },
+  initialState: {},
+  epics: [updateSankey, sankeyReactor],
 });
-
-export const store = composeStore(rootReducer, {}, [
-  updateSankey,
-  sankeyReactor,
-]);
