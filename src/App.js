@@ -5,7 +5,7 @@ import logo from "./Images/centime.png";
 import "./App.css";
 
 const App = (props) => {
-  const { t, i18n } = useTranslation(["translation", "welcome"]);
+  const { t, i18n } = useTranslation(["translation", "language"]);
 
   const changeLanguage = (code) => {
     i18n.changeLanguage(code);

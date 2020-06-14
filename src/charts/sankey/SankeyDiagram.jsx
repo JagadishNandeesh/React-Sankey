@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 
 const SankeyNode = ({ name, x0, x1, y0, y1, color }) => {
   const [open, setOpen] = useState(false);
-  const { t, i18n } = useTranslation(["translation", "welcome"]);
+  const { t, i18n } = useTranslation(["translation", "language"]);
 
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
@@ -16,7 +16,7 @@ const SankeyNode = ({ name, x0, x1, y0, y1, color }) => {
       open={open}
       onClose={handleClose}
       onOpen={handleOpen}
-      title={<div>{t(`welcome:${name}`, name)}</div>}
+      title={<div>{t(`language:${name}`, name)}</div>}
     >
       <rect
         onMouseOver={() => handleOpen()}
@@ -38,7 +38,7 @@ const SankeyLink = ({ link, color }) => {
 
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
-  const { t, i18n } = useTranslation(["translation", "welcome"]);
+  const { t, i18n } = useTranslation(["translation", "language"]);
 
   return (
     <Tooltip
@@ -47,8 +47,8 @@ const SankeyLink = ({ link, color }) => {
       onOpen={handleOpen}
       title={
         <div>
-          {t(`welcome:${link.source.name}`, link.source.name)}-{" "}
-          {t(`welcome:${link.target.name}`, link.target.name)}-{link.value}
+          {t(`language:${link.source.name}`, link.source.name)}-{" "}
+          {t(`language:${link.target.name}`, link.target.name)}-{link.value}
         </div>
       }
     >
