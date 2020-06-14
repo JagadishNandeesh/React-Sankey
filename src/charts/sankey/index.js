@@ -26,7 +26,7 @@ export const Sankey = ({ sankey, sankeyRequested }) => {
   }, []);
 
   return (
-    <div className={"sankeywrapper"}>
+    <div className={"sankeywrapper content-width "}>
       <h1 className={"sankeyheader"}>India budget 2020</h1>
       <svg width="100%" height="600" ref={sankeyRef}>
         {Object.keys(sankey).length && (

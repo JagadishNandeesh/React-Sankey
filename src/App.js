@@ -14,7 +14,7 @@ const App = (props) => {
   return (
     <div>
       <div className={"header"}>
-        <div>
+        <div className={"content-width"}>
           <img className={"logo"} src={logo} alt="centime logo" />
         </div>
 

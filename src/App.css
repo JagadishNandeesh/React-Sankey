@@ -3,12 +3,18 @@
   background-color: beige;
 }
 
+.content-width {
+  margin: 0 auto;
+  min-width: 283px;
+  max-width: 1048px;
+  height: 100%;
+}
+
 .logo {
   width: 200px;
   height: 60px;
   position: relative;
   margin-top: 1.5rem;
-  margin-left: 1.5rem;
 }
 
 .selectLanguage {
