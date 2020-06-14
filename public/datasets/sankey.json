@@ -15,7 +15,6 @@
     { "name": "Chemical and Fertilisers" },
     { "name": "Housing and Urban Affairs" },
     { "name": "Pertoleum and Natural Gas" },
-    { "name": "Communications" },
     { "name": "Rural Development" }
   ],
   "links": [
@@ -31,7 +30,6 @@
     { "source": 6, "target": 10, "value": 10000 },
     { "source": 6, "target": 11, "value": 30000 },
     { "source": 6, "target": 12, "value": 90000 },
-    { "source": 6, "target": 13, "value": 40000 },
-    { "source": 6, "target": 14, "value": 50000 }
+    { "source": 6, "target": 13, "value": 40000 }
   ]
 }
