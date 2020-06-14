@@ -26,9 +26,7 @@ const SankeyNode = ({ name, x0, x1, y0, y1, color }) => {
         width={x1 - x0}
         height={y1 - y0}
         fill={color}
-      >
-        <title>{name}</title>
-      </rect>
+      ></rect>
     </Tooltip>
   );
 };
