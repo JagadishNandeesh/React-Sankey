@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { SankeyDiagram } from "./SankeyDiagram";
+import "./Sankey.css";
 
 export const Sankey = ({ sankey, sankeyRequested }) => {
   const [data, setData] = useState(null);
@@ -25,7 +26,8 @@ export const Sankey = ({ sankey, sankeyRequested }) => {
   }, []);
 
   return (
-    <div>
+    <div className={"sankeywrapper"}>
+      <h1 className={"sankeyheader"}>India budget 2020</h1>
       <svg width="100%" height="600" ref={sankeyRef}>
         {Object.keys(sankey).length && (
           <SankeyDiagram data={sankey} width={width} height={height} />

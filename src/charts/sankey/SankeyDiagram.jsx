@@ -3,9 +3,11 @@ import * as d3 from "d3";
 import { sankey, sankeyLinkHorizontal } from "d3-sankey";
 import chroma from "chroma-js";
 import { Tooltip } from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
 const SankeyNode = ({ name, x0, x1, y0, y1, color }) => {
   const [open, setOpen] = useState(false);
+  const { t, i18n } = useTranslation(["translation", "welcome"]);
 
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
@@ -14,7 +16,7 @@ const SankeyNode = ({ name, x0, x1, y0, y1, color }) => {
       open={open}
       onClose={handleClose}
       onOpen={handleOpen}
-      title={<div>{name}</div>}
+      title={<div>{t(`welcome:${name}`, name)}</div>}
     >
       <rect
         onMouseOver={() => handleOpen()}
@@ -36,6 +38,8 @@ const SankeyLink = ({ link, color }) => {
 
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
+  const { t, i18n } = useTranslation(["translation", "welcome"]);
+
   return (
     <Tooltip
       open={open}
@@ -43,7 +47,8 @@ const SankeyLink = ({ link, color }) => {
       onOpen={handleOpen}
       title={
         <div>
-          {link.source.name}- {link.target.name}-{link.value}
+          {t(`welcome:${link.source.name}`, link.source.name)}-{" "}
+          {t(`welcome:${link.target.name}`, link.target.name)}-{link.value}
         </div>
       }
     >

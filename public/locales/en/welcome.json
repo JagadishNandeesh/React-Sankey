@@ -1,6 +1,18 @@
 {
-  "title": "Hello React",
-  "content": {
-    "text": "Welcome at our place."
-  }
+  "Corporation tax": "Corporation tax",
+  "Service tax": "Service tax",
+  "Customs": "Customs",
+  "Goods and Service tax": "Goods and Service tax",
+  "Income tax": "Income tax",
+  "Petroleum Tax": "Petroleum Tax",
+  "Total Budget": "Total Budget",
+  "Defence": "Defence",
+  "Agriculture": "Agriculture",
+  "Human Resource Development": "Human Resource Development",
+  "Communications": "Communications",
+  "Railways": "Railways",
+  "Chemical and Fertilisers": "Chemical and Fertilisers",
+  "Housing and Urban Affairs": "Housing and Urban Affairs",
+  "Pertoleum and Natural Gas": "Pertoleum and Natural Gas",
+  "Rural Development": "Rural Development"
 }

@@ -1,6 +1,18 @@
 {
-  "title": "Hallo React",
-  "content": {
-    "text": "Willkommen bei uns."
-  }
+  "Corporation tax": "Körperschaftsteuer",
+  "Service tax": "Servicesteuer",
+  "Customs": "Zoll",
+  "Goods and Service tax": "Waren- und Dienstleistungssteuer",
+  "Income tax": "Einkommenssteuer",
+  "Petroleum Tax": "Erdölsteuer",
+  "Total Budget": "Gesamtetat",
+  "Defence": "Defence",
+  "Agriculture": "Verteidigung",
+  "Human Resource Development": "Personalentwicklung",
+  "Communications": "Kommunikation",
+  "Railways": "Eisenbahnen",
+  "Chemical and Fertilisers": "Chemikalien und Düngemittel",
+  "Housing and Urban Affairs": "Wohnen und Stadtentwicklung",
+  "Pertoleum and Natural Gas": "Pertoleum und Erdgas",
+  "Rural Development": "Ländliche Entwicklung"
 }
