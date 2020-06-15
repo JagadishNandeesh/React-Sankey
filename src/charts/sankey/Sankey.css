@@ -13,3 +13,11 @@
   text-align: center;
   margin-bottom: 2rem;
 }
+.contianer {
+  display: flex;
+}
+
+.sankeySvg,
+.sankeylist {
+  flex: 0 0 50%;
+}

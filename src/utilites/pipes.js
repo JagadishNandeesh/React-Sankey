@@ -5,10 +5,15 @@ import "rxjs/add/observable/from";
 import "rxjs/add/observable/of";
 import "rxjs/add/observable/concat";
 
-const fromPromise = (actionCreators, promise) =>
-  promise
-    .then((data) => actionCreators.status("LOADED", data))
+const fromPromise = (actionCreators, promise) => {
+  console.log(promise);
+  return promise
+    .then((data) => {
+      console.log(data);
+      return actionCreators.status("LOADED", data);
+    })
     .catch((data) => actionCreators.status("FAILED", data));
+};
 
 export const asyncSelect = (actionCreators, promise) => (source$) =>
   source$.mergeMap((action) =>

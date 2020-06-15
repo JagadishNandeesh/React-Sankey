@@ -3,8 +3,9 @@ import { useTranslation } from "react-i18next";
 import { SankeyContainer } from "./charts/sankey/Container";
 import logo from "./Images/centime.png";
 import "./App.css";
+import { Header } from "./Header";
 
-const App = (props) => {
+const App = () => {
   const { t, i18n } = useTranslation(["translation", "language"]);
 
   const changeLanguage = (code) => {
@@ -13,21 +14,7 @@ const App = (props) => {
 
   return (
     <div>
-      <div className={"header"}>
-        <div className={"content-width"}>
-          <img className={"logo"} src={logo} alt="centime logo" />
-        </div>
-
-        <div className={"selectLanguage"}>
-          <select onChange={(event) => changeLanguage(event.target.value)}>
-            <option defaultValue value={"en"}>
-              {t("translation:en")}
-            </option>
-            <option value={"de"}>{t("translation:de")}</option>
-          </select>
-        </div>
-      </div>
-
+      <Header />
       <SankeyContainer />
     </div>
   );

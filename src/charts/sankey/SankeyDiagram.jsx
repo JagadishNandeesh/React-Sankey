@@ -66,13 +66,14 @@ const SankeyLink = ({ link, color }) => {
 };
 
 export const SankeyDiagram = ({ data, width, height }) => {
+  const sankeyData = JSON.parse(JSON.stringify(data));
   const { nodes, links } = sankey()
     .nodeWidth(15)
     .nodePadding(10)
     .extent([
       [1, 1],
       [width - 1, height - 5],
-    ])(data);
+    ])(sankeyData);
   const color = chroma.scale("Set3").classes(nodes.length);
   const colorScale = d3.scaleLinear().domain([0, nodes.length]).range([0, 1]);
   return (

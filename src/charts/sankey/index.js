@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { SankeyDiagram } from "./SankeyDiagram";
 import "./Sankey.css";
 import { useTranslation } from "react-i18next";
+import { SankeyList } from "./SankeyList";
 
 export const Sankey = ({ sankey, sankeyRequested }) => {
   const [data, setData] = useState(null);
@@ -33,11 +34,17 @@ export const Sankey = ({ sankey, sankeyRequested }) => {
       <h1 className={"sankeyheader"}>
         {t(`language:IndiaBuget`, "India Budget 2020")}
       </h1>
-      <svg width="100%" height="600" ref={sankeyRef}>
-        {Object.keys(sankey).length && (
-          <SankeyDiagram data={sankey} width={width} height={height} />
-        )}
-      </svg>
+
+      <div className={"contianer"}>
+        <SankeyList sankey={sankey} />
+        <div className={"sankeySvg"}>
+          <svg width="100%" height="600" ref={sankeyRef}>
+            {Object.keys(sankey).length && (
+              <SankeyDiagram data={sankey} width={width} height={height} />
+            )}
+          </svg>
+        </div>
+      </div>
     </div>
   );
 };
