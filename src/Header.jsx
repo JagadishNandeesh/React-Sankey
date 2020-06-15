@@ -16,7 +16,10 @@ export const Header = () => {
       </div>
 
       <div className={"selectLanguage"}>
-        <select onChange={(event) => changeLanguage(event.target.value)}>
+        <select
+          data-testid="select"
+          onChange={(event) => changeLanguage(event.target.value)}
+        >
           <option defaultValue value={"en"}>
             {t("translation:en")}
           </option>
